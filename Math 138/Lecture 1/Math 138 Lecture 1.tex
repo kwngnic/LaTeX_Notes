@@ -1,14 +1,15 @@
 \documentclass[12pt]{letter}
 \usepackage{amsmath, amssymb}
-\usepackage{fullpage}
+\usepackage[top=0.5cm, left=3.5cm, bottom=2.5cm, right=2.5cm, includehead]{geometry}
+\geometry{headheight=28pt, headsep=15pt}
 \begin{document}
 \begin{center}{{\LARGE \textbf{Math 138 - January $4^{th}$ 2015}} \\  \underline{Review of Integration}}\end{center}
 
 Given a, b {\Large $\epsilon$} $\mathbb{R}$. a $<$ b and n {\Large $\epsilon$} $\mathbb{N}$ we divide the interval [a, b] into n subintervals [x$_{i-1}$, $x_{i}$],
-i = 1 ... n of equal width $\Delta x$ = $\frac{b - a}{n}$. amd choose sample points:  \\ 
+i = 1 ... n of equal width $\Delta x$ = $\frac{b - a}{n}$. amd choose sample points:  \\
 \begin{center}$x_{i} * \epsilon [x_{i-1}, x_{i}]$, i = 1 ... n\end{center} 
 For a function $f$ on the closed interval [a, b]. the definite integral of  f from a to b is: \\
-{\large{$\int_{a}^{b} f(x) dx$ = $\lim{n\to\infty} \sum_{i=1}^n f(x_{i} *) \Delta x$}} \\  \\
+{\large{$\int_{a}^{b} f(x) dx$ = $\lim{n\to\infty} \sum_{i=1}^n f(x_{i} *) \Delta x$}} \\ \\
 We say that $f$ is integrable if the above limit exists and is independant of the sample points $x_{i} *$. \\
 Recall that continuous functions are integrable. \\
  Furthermore, $\lim{n\to\infty} \sum_{i=1}^n f(x_{i} *) \Delta x$ is the sum of the areas of the rectangles, and $\int_{a}^{b} f(x) dx$ is the area under a curve between two $x$ values. \\ \\
@@ -17,9 +18,16 @@ Suppose $f$ is continous on [a,b]. \\ \\
 I: If $g(x) =  \int_{a}^{x} f(t) dt$ , then g is differentiable and $g'(x) = f(x), x${\Large $\epsilon$} [a, b] \\ \\
 II: $\int_{a}^{b} f(x)dx = F(b) - F(a)$ where $F$ is \textbf{any} antiderivative of $f(x)$, i.e, $F'(x) = f(x), x$ {\large {$\epsilon$}} [a, b]
 
-\underline{Examples:} \\ 
-1) Find the derivative of g(x), where: \\ a) $g(x) = \int_{1}^{x} ln(1+t^{2})dt$ \\ b)  $g(x) = \int_{1}^{3x+2}\frac{t}{1+t^{3}}dt$ \\ \\
+\underline{Example 1:}  
+Find the derivative of g(x), where: \\ a) $g(x) = \int_{1}^{x} ln(1+t^{2})dt$ \\ b)  $g(x) = \int_{1}^{3x+2}\frac{t}{1+t^{3}}dt$ \\ \\
 Solution a): $g'(x) = ln(1+x^{2})$ By FTC(I) \\
 Solution b): Write $g(x) = f(u(x))$, where $f(u) = \int_{1}^{u}\frac{t}{1+t^{3}}dt$ and $u(x) = 3x + 2$
-By the chain rule and FTC(I), \\ \begin{equation} \begin{split} g'(x) &= f'(u(x)) \cdot u'(x) \\ &= \end{split} \end{equation}
+By the chain rule and FTC(I), \\ \begin{equation} \begin{split} g'(x) &= f'(u(x)) \cdot u'(x) \\
+&= \frac{u(x)}{1+u(x^{3})} \cdot 3 \\ &=\frac{3(3x + 2)}{1+(3x+2)^{3}} \end{split} \end{equation} \newpage
+\underline{Example 2:} Evaluate the integrals: a) $\int_{1}^{9}\sqrt{x}dx$ b) $\int_{\frac{\pi}{6}}{\pi}sin\theta d\theta$ \\ Solutions: a) \begin{equation} \begin{split} \int_{1}^{9}\sqrt{x} dx &=\frac{x^{\frac{3}{2}}}{\frac {3}{2}} \Big |_1^9 \\ &=\frac{2}{3}(9^{\frac{3}{2}}-1) \\ &= \frac{2}{3}(26) \\ &=\frac{52}{3} \end{split} \end{equation} 
+If $f$ has an antriderivative $F$ on [a, b] (i.e $F'(x) = f(x)$) the \underline{indefinite integral} of $f$ is $\int_{}f(x)dx = F(x) + C$ By FTC(II) the definite integral, 
+\\ $\int_{a}^{b}f(x)dx = \int_{}f(x)dx\Big |_a^b$ \\ \\
+\underline{Examples}: \\ 1) $\int_{}sec^{2}xdx = tanx + C$ \\ 2) $\int_{}\frac{1}{x}dx=ln|x|+C$ \\ \\
+\underline{Substitution Rule:} If $a=g(x)$ is differentiable and $f$ is continuous on the range of $u$, then $\int_{a}^{b}f(g(x))g'(x)dx = \int_{g(a)}^{g(b)}f(u)du$ \\ \\
+\underline{Example:} \begin{equation} \begin{split} \int_{1}^{e}\frac{ln(x)}{x}dx &=\int_{1}^{e}lnx\frac{dx}{x} \\ &=\int_{u(1)=0}^{u(e)=1}u\cdot du \\ &=\frac{u^{2}}{2} \Big|_0^1 \\ &=\frac{1}{2} \end{split} \end{equation} 
 \end{document}
